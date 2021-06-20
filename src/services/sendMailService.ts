@@ -1,5 +1,4 @@
 import nodemailer, { Transporter } from "nodemailer";
-import path from 'path';
 import handlebars from "handlebars"
 import fs from "fs"
 
@@ -20,24 +19,24 @@ class SendMailService {
         })
     }
 
-    async execute(to: string, subject: string, body: string) {
+    async execute(to: string, subject: string, variables: object, path: string) {
         //gettando caminho do email view
-        const npsPath = path.resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
+
 
         //realizando leitura do arquivo no formato utf8
-        const templateFileContent = fs.readFileSync(npsPath).toString("utf8");
+        const templateFileContent = fs.readFileSync(path).toString("utf8");
 
         //handlebars compilando arquivo lido
         const mailTemplateParse = handlebars.compile(templateFileContent);
 
         //passando ao arquivo transformado as variaveis faltantes
-        const html = mailTemplateParse({ name: to, title: subject, description: body })
+        const html = mailTemplateParse(variables)
 
         const message = await this.client.sendMail({
             to,
             subject,
             html,
-            from:"NPS <noreplay@npsjobsea.com.br>"
+            from: "NPS <noreplay@npsjobsea.com.br>"
         });
 
         console.log('Message sent: %s', message.messageId);

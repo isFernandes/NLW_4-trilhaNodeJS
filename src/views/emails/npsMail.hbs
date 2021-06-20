@@ -22,39 +22,41 @@
         width: 15px;
         text-align: center;
         text-decoration: none;
+        margin: 6px;
     }
 
-    .level{
-        display: flex;
-        margin:10px;
+    .level {
+        display:
+            flex;
+        margin: 10px;
         justify-content: space-between;
         width: 350px;
     }
 </style>
 
 <div class="container">
-    <label>Olá <strong>{{userName}}</strong>! Tudo bem? </label>
+    <label>Olá <strong>{{username}}</strong>! Tudo bem? </label>
 
     <h3>{{title}}</h3>
     <br />
     <strong>{{description}}</strong>
 
     <div class="level">
-        <span>Pouco Provavel</span>
-        <span>Muito Provavel</span>
+        <span>Pouco Provável</span>
+        <span>Muito Provável</span>
     </div>
 
     <div class="answers">
-        <a href="" class="value">1</a>
-        <a href="" class="value">2</a>
-        <a href="" class="value">3</a>
-        <a href="" class="value">4</a>
-        <a href="" class="value">5</a>
-        <a href="" class="value">6</a>
-        <a href="" class="value">7</a>
-        <a href="" class="value">8</a>
-        <a href="" class="value">9</a>
-        <a href="" class="value">10</a>
+        <a href="{{link}}/1?u={{userId}}" class="value">1</a>
+        <a href="{{link}}/2?u={{userId}}" class="value">2</a>
+        <a href="{{link}}/3?u={{userId}}" class="value">3</a>
+        <a href="{{link}}/4?u={{userId}}" class="value">4</a>
+        <a href="{{link}}/5?u={{userId}}" class="value">5</a>
+        <a href="{{link}}/6?u={{userId}}" class="value">6</a>
+        <a href="{{link}}/7?u={{userId}}" class="value">7</a>
+        <a href="{{link}}/8?u={{userId}}" class="value">8</a>
+        <a href="{{link}}/9?u={{userId}}" class="value">9</a>
+        <a href="{{link}}/10?u={{userId}}" class="value">10</a>
     </div>
     <br />
     <br />
